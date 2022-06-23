@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "rxswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ReactiveX/RxSwift",
+      "state" : {
+        "branch" : "main",
+        "revision" : "e0ab8c4e18baf6679a65b325155923276b832687"
+      }
+    },
+    {
+      "identity" : "swinject",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Swinject/Swinject",
+      "state" : {
+        "branch" : "master",
+        "revision" : "45e9e99b05e356f2d68d170d695387a8eabf8694"
+      }
+    },
+    {
+      "identity" : "swinjectstoryboard",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Swinject/SwinjectStoryboard",
+      "state" : {
+        "revision" : "a39bd7abe7e7427f9a0929a402cf2d1916fa5d50",
+        "version" : "2.2.2"
+      }
+    }
+  ],
+  "version" : 2
+}

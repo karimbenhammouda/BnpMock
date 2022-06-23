@@ -1,0 +1,52 @@
+{
+    "page":1,
+    "results":[{
+        "adult":false,
+        "backdrop_path":"/i2tcQ9nDJpdJELPA82eCd7Irasd.jpg",
+        "genre_ids":[28,53,12],
+        "id":831946,
+        "original_language":"en",
+        "original_title":"Interceptor",
+        "overview":"A U.S. Army Captain uses her years of tactical training to save humanity from sixteen nuclear missiles launched at the U.S. as a violent attack threatens her remote missile interceptor station.",
+        "popularity":2110.736,
+        "poster_path":"/cpWUtkcgRKeauhTyVMjYHxAutp4.jpg",
+        "release_date":"2022-05-26",
+        "title":"Interceptor",
+        "video":false,
+        "vote_average":6.4,
+        "vote_count":243
+    },
+    {
+        "adult":false,
+        "backdrop_path":"/aEGiJJP91HsKVTEPy1HhmN0wRLm.jpg",
+        "genre_ids":[28,12],
+        "id":335787,
+        "original_language":"en"
+        ,"original_title":"Uncharted",
+        "overview":"A young street-smart, Nathan Drake and his wisecracking partner Victor “Sully” Sullivan embark on a dangerous pursuit of “the greatest treasure never found” while also tracking clues that may lead to Nathan’s long-lost brother.",
+        "popularity":1785.726,
+        "poster_path":"/tlZpSxYuBRoVJBOpUrPdQe9FmFq.jpg",
+        "release_date":"2022-02-10",
+        "title":"Uncharted",
+        "video":false,
+        "vote_average":7.1,
+        "vote_count":2415
+    },
+    {
+        "adult":false,
+        "backdrop_path":"/9bbxqz1iPEfZN9Xi2ZjJhkp5JRo.jpg",
+        "genre_ids":[16,878,28],
+        "id":610150,
+        "original_language":"ja",
+        "original_title":"ドラゴンボール超：スーパーヒーロー",
+        "overview":"The Red Ribbon Army, an evil organization that was once destroyed by Goku in the past, has been reformed by a group of people who have created new and mightier Androids, Gamma 1 and Gamma 2, and seek vengeance against Goku and his family.",
+        "popularity":2137.14,
+        "poster_path":"/rugyJdeoJm7cSJL1q4jBpTNbxyU.jpg",
+        "release_date":"2022-06-11",
+        "title":"Dragon Ball Super: Super Hero",
+        "video":false,
+        "vote_average":6.8,
+        "vote_count":13
+    }],
+    "total_pages":33929,
+    "total_results":678569}
