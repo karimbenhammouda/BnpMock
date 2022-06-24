@@ -36,12 +36,14 @@ class SwinjectContainer {
         
         // DetailsMoviesViewModel
         container.register(DetailsMoviesViewModel.self) { (resolver, movie: Movie) in
-            DetailsMoviesViewModelImplement(movie: movie)
+            let movieDetails = MovieDeatils(title: movie.originalTitle, overview: movie.overview, backdropPath: movie.backdropPath)
+            return DetailsMoviesViewModelImplement(movieDeatils: movieDetails)
         }
         
         //MovieCellViewModel
         container.register(MovieCellViewModel.self) { (resolver, movie: Movie) in
-            MovieCellViewModelImplement(movie: movie)
+            let movielist = MovieList(title: movie.title, overview: movie.overview, posterPath: movie.posterPath)
+            return MovieCellViewModelImplement(movie: movielist)
         }
         
         // MARK: - ViewController

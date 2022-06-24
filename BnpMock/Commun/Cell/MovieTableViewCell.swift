@@ -38,7 +38,7 @@ class MovieTableViewCell: UITableViewCell {
         DispatchQueue.main.async {
             self.movieDescription.addTrailing(with: "... ", moreText: "Readmore", moreTextFont: Constants.font.readMoreFont, moreTextColor: .black)
         }
-        movieTitle.text = viewModel.movie.originalTitle
+        movieTitle.text = viewModel.movie.title
         moviePhoto.loadImageAsync(with: "\(APIRoute.getImage.urlString)\(viewModel.movie.posterPath)")
     }
     

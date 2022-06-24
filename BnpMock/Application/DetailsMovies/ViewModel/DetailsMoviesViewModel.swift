@@ -7,19 +7,31 @@
 
 import Foundation
 
+struct MovieDeatils {
+   var title:String
+   var overview:String
+   var backdropPath:String
+
+   init(title:String, overview:String, backdropPath:String) {
+      self.title = title
+      self.overview = overview
+      self.backdropPath = backdropPath
+  }
+}
+
 protocol DetailsMoviesViewModel {
-    var movie: Movie { get set }
+    var movieDeatils: MovieDeatils { get set }
 }
 
 class DetailsMoviesViewModelImplement: DetailsMoviesViewModel {
     // MARK: - Properties
 
-    var movie: Movie
+    var movieDeatils: MovieDeatils
     
     // MARK: - init
     
-    init(movie: Movie) {
-        self.movie = movie
+    init(movieDeatils: MovieDeatils) {
+        self.movieDeatils = movieDeatils
     }
     
 }

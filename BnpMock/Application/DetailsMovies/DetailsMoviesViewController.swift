@@ -31,9 +31,9 @@ class DetailsMoviesViewController: UIViewController {
     // MARK: - private func
     
     private func setupView() {
-        title = viewModel.movie.originalTitle
-        titleLabel.text = viewModel.movie.originalTitle
-        descriptionLabel.text = viewModel.movie.overview
-        moviePhoto.loadImageAsync(with: "\(APIRoute.getImage.urlString)\(viewModel.movie.backdropPath)")
+        title = viewModel.movieDeatils.title
+        titleLabel.text = viewModel.movieDeatils.title
+        descriptionLabel.text = viewModel.movieDeatils.overview
+        moviePhoto.loadImageAsync(with: "\(APIRoute.getImage.urlString)\(viewModel.movieDeatils.backdropPath)")
     }
 }
