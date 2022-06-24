@@ -21,7 +21,7 @@ class ListMoviesViewController: UIViewController, UIScrollViewDelegate {
     
     var viewModel: ListMoviesViewModel!
     private let disposeBag = DisposeBag()
-    
+
     // MARK: - override func
     override func viewDidLoad() {
         super.viewDidLoad()

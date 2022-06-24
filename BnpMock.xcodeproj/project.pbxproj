@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D80178D12865AFAA007747F2 /* APIClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80178D02865AFAA007747F2 /* APIClientMock.swift */; };
 		D807F9B52862572800A9566A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807F9B42862572800A9566A /* Coordinator.swift */; };
 		D807F9B72862647600A9566A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D807F9B62862647600A9566A /* HomeViewModel.swift */; };
 		D81194D92858DAA400FA0242 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = D81194D82858DAA400FA0242 /* Swinject */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D80178D02865AFAA007747F2 /* APIClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientMock.swift; sourceTree = "<group>"; };
 		D807F9B42862572800A9566A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		D807F9B62862647600A9566A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		D81194DD2858DEE300FA0242 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			children = (
 				D81194DD2858DEE300FA0242 /* APIClient.swift */,
 				D82F48C02859CF4600C8A5E5 /* APIRoute.swift */,
+				D80178D02865AFAA007747F2 /* APIClientMock.swift */,
 			);
 			path = WebService;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				D81194DE2858DEE300FA0242 /* APIClient.swift in Sources */,
 				D8F6A6C12858D5A7002CF286 /* SceneDelegate.swift in Sources */,
 				D82F48C62859D40000C8A5E5 /* Movie.swift in Sources */,
+				D80178D12865AFAA007747F2 /* APIClientMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
