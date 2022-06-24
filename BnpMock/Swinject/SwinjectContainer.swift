@@ -14,18 +14,15 @@ class SwinjectContainer {
     var container = Container()
     
     // MARK: - Public function
-    
+
     public func register() {
         // MARK: - APIClient
         
         // APIClient
-        container.register(Networking.self, name: "ApiClient", factory: { (resolver) in
-                return APIClient()
-        })
-        
-        container.register(Networking.self, name: "ApiClientMock", factory: { (resolver) in
-                return APIClientMock()
-        })
+        _ = Assembler([
+            NetworkingAssemblyApiMock(container: container),
+            NetworkingAssemblyApi(container: container)
+        ])
         
         // MARK: - ViewModel
         
@@ -67,5 +64,29 @@ class SwinjectContainer {
             detailsMoviesViewController.viewModel = resolver.resolve(DetailsMoviesViewModel.self, argument: movie)
             return detailsMoviesViewController
         }
+    }
+}
+
+final class NetworkingAssemblyApiMock: Assembly {
+    public init(container: Container) {
+        assemble(container: container)
+    }
+
+    func assemble(container: Container) {
+        container.register(Networking.self, name: "ApiClientMock", factory: { (resolver) in
+                return APIClientMock()
+        })
+    }
+}
+
+final class NetworkingAssemblyApi: Assembly {
+    public init(container: Container) {
+        assemble(container: container)
+    }
+
+    func assemble(container: Container) {
+        container.register(Networking.self, name: "ApiClient", factory: { (resolver) in
+                return APIClient()
+        })
     }
 }

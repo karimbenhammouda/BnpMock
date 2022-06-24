@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let swinjectContainer = SwinjectContainer()
         swinjectContainer.register()
+
         let coordinator = Coordinator(windowScene: windowScene, swinjectContainer: swinjectContainer, window: window)
         coordinator.start()
 

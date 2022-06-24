@@ -7,6 +7,7 @@
 
 import UIKit
 import RxRelay
+import Swinject
 
 class HomeViewController: UIViewController {
     
@@ -44,6 +45,7 @@ class HomeViewController: UIViewController {
             apiClient = coordinator.container.resolve(Networking.self, name: "ApiClient")
             apiUrl = APIRoute.getListMovies.urlString
         }
+
         guard let apiClient = apiClient else { return }
         coordinator.apiclient = apiClient
         coordinator.showListMovies(apiUrl: apiUrl)
