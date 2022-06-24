@@ -35,7 +35,17 @@ class HomeViewController: UIViewController {
     // MARK: - @IBAction
 
     @IBAction func displayMoviesTapped(_ sender: Any) {
-        guard let apiClient = coordinator.container.resolve(Networking.self, argument: switchMock.isOn) else { return }
-        coordinator.showListMovies(apiClient: apiClient)
+        let apiClient: Networking?
+        let apiUrl: String
+        if switchMock.isOn {
+            apiClient = coordinator.container.resolve(Networking.self, name: "ApiClientMock")
+            apiUrl = APIRoute.getListMoviesMock.urlString
+        } else {
+            apiClient = coordinator.container.resolve(Networking.self, name: "ApiClient")
+            apiUrl = APIRoute.getListMovies.urlString
+        }
+        guard let apiClient = apiClient else { return }
+        coordinator.apiclient = apiClient
+        coordinator.showListMovies(apiUrl: apiUrl)
     }
 }

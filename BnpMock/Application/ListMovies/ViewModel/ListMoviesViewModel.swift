@@ -15,6 +15,8 @@ protocol ListMoviesViewModel {
     var mainListMovies: Observable<PopularMovies>? { get set }
     
     var filtredMoviesList: [Movie] { get set }
+    
+    var apiUrl: String { get set }
 
     func fetchMovieList()
     
@@ -29,21 +31,21 @@ class ListMoviesViewModelImplement: ListMoviesViewModel {
     var mainListMovies: Observable<PopularMovies>?
     var filtredMoviesList: [Movie]
     let disposeBag = DisposeBag()
+    var apiUrl: String
     private let apiClient: Networking?
 
     // MARK: - init
     
-    init(apiClient: Networking?) {
+    init(apiClient: Networking?, apiUrl: String) {
         self.apiClient = apiClient
+        self.apiUrl = apiUrl
         self.filtredMoviesList = []
     }
 
     // MARK: - public func
     
     func fetchMovieList() {
-//        let url = isMockData ? APIRoute.getListMoviesMock.urlString : APIRoute.getListMovies.urlString
-       
-        mainListMovies = self.apiClient?.getData(url: APIRoute.getListMoviesMock.urlString)
+        mainListMovies = self.apiClient?.getData(url: apiUrl)
 
         mainListMovies?
             .debug("mainListMovies received event")

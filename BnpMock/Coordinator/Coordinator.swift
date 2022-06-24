@@ -17,6 +17,7 @@ class Coordinator {
     let window: UIWindow?
     let container: Container
     let navigationController = UINavigationController()
+    var apiclient: Networking?
     
     // MARK: Init
     
@@ -24,6 +25,7 @@ class Coordinator {
         self.windowScene = windowScene
         self.container = swinjectContainer.container
         self.window = window
+        self.apiclient = nil
     }
     
     // MARK: Public Func
@@ -41,8 +43,8 @@ class Coordinator {
         }
     }
     
-    func showListMovies(apiClient: Networking) {
-        guard let controller = container.resolve(ListMoviesViewController.self, arguments: self, apiClient) else {
+    func showListMovies(apiUrl: String) {
+        guard let controller = container.resolve(ListMoviesViewController.self, arguments: self, apiUrl) else {
             return
         }
         navigationController.pushViewController(controller, animated: true)

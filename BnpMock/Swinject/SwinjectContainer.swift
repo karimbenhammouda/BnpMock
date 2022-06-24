@@ -19,19 +19,19 @@ class SwinjectContainer {
         // MARK: - APIClient
         
         // APIClient
-        container.register(Networking.self, factory: { (resolver, isMock: Bool) in
-            if isMock {
+        container.register(Networking.self, name: "ApiClient", factory: { (resolver) in
+                return APIClient()
+        })
+        
+        container.register(Networking.self, name: "ApiClientMock", factory: { (resolver) in
                 return APIClientMock()
-            } else {
-                return APIClient() 
-            }
         })
         
         // MARK: - ViewModel
         
         // ListMoviesViewModel
-        container.register(ListMoviesViewModel.self) { (resolver) in
-            ListMoviesViewModelImplement(apiClient: resolver.resolve(Networking.self))
+        container.register(ListMoviesViewModel.self) { (resolver, networking: Networking?, apiUrl: String) in
+            ListMoviesViewModelImplement(apiClient: networking, apiUrl: apiUrl)
         }
         
         // DetailsMoviesViewModel
@@ -53,9 +53,9 @@ class SwinjectContainer {
         }
         
         // ListMoviesViewController
-        container.register(ListMoviesViewController.self) { (resolver, coordinator: Coordinator, apiClient: Networking) in
-            let viewModel = ListMoviesViewModelImplement(apiClient: apiClient)
-            let listMoviesViewController = ListMoviesViewController(viewModel: viewModel, coordinator: coordinator)
+        container.register(ListMoviesViewController.self) { (resolver, coordinator: Coordinator, apiUrl: String) in
+            let viewModel = resolver.resolve(ListMoviesViewModel.self, arguments: coordinator.apiclient, apiUrl)
+            let listMoviesViewController = ListMoviesViewController(viewModel: viewModel!, coordinator: coordinator)
             return listMoviesViewController
         }
 

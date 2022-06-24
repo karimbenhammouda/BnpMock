@@ -7,38 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9BFD3DAD-8EF7-4739-A904-52B3DA8FB22C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BnpMock/Swinject/SwinjectContainer.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "register()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8D634E2D-4AFD-4F4D-AC5B-41C11FC24676"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BnpMock/Swinject/SwinjectContainer.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "register()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "254234C3-E683-4B77-969B-0F091A963C89"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -55,65 +23,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1BC66C56-FB91-49A4-81F5-66633565E993"
-            shouldBeEnabled = "Yes"
+            uuid = "06C6C717-1078-4390-8B88-663DEEDB2037"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BnpMock/AppDelegate/SceneDelegate.swift"
+            filePath = "BnpMock/Swinject/SwinjectContainer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "scene(_:willConnectTo:options:)"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "register()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D5D2BAC7-C031-4211-8939-6B88E3550F7B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BnpMock/Coordinator/Coordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "start()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D5D2BAC7-C031-4211-8939-6B88E3550F7B - b3ed85577549c117"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BnpMock.Coordinator.start() -&gt; ()"
-                  moduleName = "BnpMock"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/karimbenhammouda/Desktop/BnpMockGit/BnpMock/Coordinator/Coordinator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "85">
-               </Location>
-               <Location
-                  uuid = "D5D2BAC7-C031-4211-8939-6B88E3550F7B - b3ed85577549c117"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BnpMock.Coordinator.start() -&gt; ()"
-                  moduleName = "BnpMock"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/karimbenhammouda/Desktop/BnpMockGit/BnpMock/Coordinator/Coordinator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "119">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
