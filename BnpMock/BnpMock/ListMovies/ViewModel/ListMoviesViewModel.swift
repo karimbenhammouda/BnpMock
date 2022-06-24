@@ -49,7 +49,9 @@ class ListMoviesViewModelImplement: ListMoviesViewModel {
     // MARK: - public func
     
     func fetchMovieList() {
-        mainListMovies = isMockData ? self.apiClient?.getData(url: APIRoute.getListMoviesMock.urlString, isMock: true) : self.apiClient?.getData(url: APIRoute.getListMovies.urlString, isMock: false)
+        let url = isMockData ? APIRoute.getListMoviesMock.urlString : APIRoute.getListMovies.urlString
+        mainListMovies = self.apiClient?.getData(url: url)
+
         mainListMovies?
             .debug("mainListMovies received event")
             .subscribe(onNext: { [unowned self] movieListResult in
