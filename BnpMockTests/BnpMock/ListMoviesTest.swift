@@ -8,7 +8,6 @@
 import XCTest
 @testable import BnpMock
 import RxSwift
-import SwinjectStoryboard
 
 class ListMoviesTest: XCTestCase {
     private var sut: ListMoviesViewController!

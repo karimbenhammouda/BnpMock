@@ -6,7 +6,6 @@
 //
 
 import Swinject
-import SwinjectStoryboard
 import UIKit
 
 class SwinjectContainer {
@@ -20,20 +19,19 @@ class SwinjectContainer {
         // MARK: - APIClient
         
         // APIClient
-        container.register(Networking.self, factory: { resolver in
-            return APIClient()
+        container.register(Networking.self, factory: { (resolver, isMock: Bool) in
+            if isMock {
+                return APIClientMock()
+            } else {
+                return APIClient() 
+            }
         })
         
         // MARK: - ViewModel
         
         // ListMoviesViewModel
-        container.register(HomeViewModel.self) { (resolver, coordinator: Coordinator) in
-            HomeViewModelImplement( coordinator: coordinator)
-        }
-        
-        // ListMoviesViewModel
-        container.register(ListMoviesViewModel.self) { (resolver, isMock: Bool, coordinator: Coordinator) in
-            ListMoviesViewModelImplement(apiClient: resolver.resolve(Networking.self), isMockData: isMock, coordinator: coordinator)
+        container.register(ListMoviesViewModel.self) { (resolver) in
+            ListMoviesViewModelImplement(apiClient: resolver.resolve(Networking.self))
         }
         
         // DetailsMoviesViewModel
@@ -49,15 +47,15 @@ class SwinjectContainer {
         // MARK: - ViewController
         
         // ListMoviesViewController
-        container.register(HomeViewController.self) { (resolver) in
-            let homeViewController = HomeViewController()
+        container.register(HomeViewController.self) { (resolver, coordinator: Coordinator) in
+            let homeViewController = HomeViewController(coordinator: coordinator)
             return homeViewController
         }
         
         // ListMoviesViewController
-        container.register(ListMoviesViewController.self) { (resolver, isMock: Bool, coordinator: Coordinator) in
-            let listMoviesViewController = ListMoviesViewController()
-            listMoviesViewController.viewModel = resolver.resolve(ListMoviesViewModel.self, arguments: isMock, coordinator)
+        container.register(ListMoviesViewController.self) { (resolver, coordinator: Coordinator, apiClient: Networking) in
+            let viewModel = ListMoviesViewModelImplement(apiClient: apiClient)
+            let listMoviesViewController = ListMoviesViewController(viewModel: viewModel, coordinator: coordinator)
             return listMoviesViewController
         }
 

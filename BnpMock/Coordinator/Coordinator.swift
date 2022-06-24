@@ -15,24 +15,23 @@ class Coordinator {
     
     let windowScene: UIWindowScene?
     let window: UIWindow?
-    let swinjectContainer: SwinjectContainer?
+    let container: Container
     let navigationController = UINavigationController()
     
     // MARK: Init
     
-    init(windowScene: UIWindowScene?, swinjectContainer: SwinjectContainer?, window: UIWindow?) {
+    init(windowScene: UIWindowScene?, swinjectContainer: SwinjectContainer, window: UIWindow?) {
         self.windowScene = windowScene
-        self.swinjectContainer = swinjectContainer
+        self.container = swinjectContainer.container
         self.window = window
     }
     
     // MARK: Public Func
     
     func start() {
-        guard let windowScene = windowScene, let homeViewController = swinjectContainer?.container.resolve(HomeViewController.self) else {
+        guard let windowScene = windowScene, let homeViewController = container.resolve(HomeViewController.self, argument: self) else {
             return
         }
-        homeViewController.viewModel = swinjectContainer?.container.resolve(HomeViewModel.self, argument: self)
         navigationController.viewControllers = [homeViewController]
         navigationController.popToRootViewController(animated: false)
         if let window = window {
@@ -42,15 +41,15 @@ class Coordinator {
         }
     }
     
-    func showListMovies(isMock: Bool) {
-        guard let controller = swinjectContainer?.container.resolve(ListMoviesViewController.self, arguments: isMock, self) else {
+    func showListMovies(apiClient: Networking) {
+        guard let controller = container.resolve(ListMoviesViewController.self, arguments: self, apiClient) else {
             return
         }
         navigationController.pushViewController(controller, animated: true)
     }
     
     func showDetailsMovie(movie: Movie) {
-        guard let controller = swinjectContainer?.container.resolve(DetailsMoviesViewController.self, argument: movie) else {
+        guard let controller = container.resolve(DetailsMoviesViewController.self, argument: movie) else {
             return
         }
         self.navigationController.pushViewController(controller, animated: true)

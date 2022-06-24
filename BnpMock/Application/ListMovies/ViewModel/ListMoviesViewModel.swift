@@ -15,10 +15,6 @@ protocol ListMoviesViewModel {
     var mainListMovies: Observable<PopularMovies>? { get set }
     
     var filtredMoviesList: [Movie] { get set }
-    
-    var isMockData: Bool { get set }
-    
-    var coordinator: Coordinator? { get set }
 
     func fetchMovieList()
     
@@ -28,28 +24,27 @@ protocol ListMoviesViewModel {
 
 class ListMoviesViewModelImplement: ListMoviesViewModel {
     // MARK: - Properties
-    
-    var isMockData: Bool
+
     var displayedMovieList: BehaviorRelay<[Movie]> = BehaviorRelay.init(value: [])
     var mainListMovies: Observable<PopularMovies>?
     var filtredMoviesList: [Movie]
     let disposeBag = DisposeBag()
-    var coordinator: Coordinator?
     private let apiClient: Networking?
 
     // MARK: - init
     
-    init(apiClient: Networking?, isMockData: Bool, coordinator: Coordinator?) {
+    init(apiClient: Networking?) {
         self.apiClient = apiClient
-        self.isMockData = isMockData
-        self.coordinator = coordinator
         self.filtredMoviesList = []
     }
 
     // MARK: - public func
     
     func fetchMovieList() {
-        mainListMovies = isMockData ? self.apiClient?.getData(url: APIRoute.getListMoviesMock.urlString, isMock: true) : self.apiClient?.getData(url: APIRoute.getListMovies.urlString, isMock: false)
+//        let url = isMockData ? APIRoute.getListMoviesMock.urlString : APIRoute.getListMovies.urlString
+       
+        mainListMovies = self.apiClient?.getData(url: APIRoute.getListMoviesMock.urlString)
+
         mainListMovies?
             .debug("mainListMovies received event")
             .subscribe(onNext: { [unowned self] movieListResult in

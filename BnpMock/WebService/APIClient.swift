@@ -10,27 +10,14 @@ import RxSwift
 import RxCocoa
 
 public protocol Networking {
-    func getData<T: Codable>(url: String, isMock: Bool) -> Observable<T>
+    func getData<T: Codable>(url: String) -> Observable<T>
 }
 
 class APIClient: Networking {
-    public init() { }
 
-    func getData<T: Codable>(url: String, isMock: Bool) -> Observable<T> {
+    func getData<T: Codable>(url: String) -> Observable<T> {
         return Observable<T>.create { [weak self] observer in
-            guard let weakSelf = self else { return Disposables.create() }
-            if isMock {
-                if let data = weakSelf.getmMockData(name: url) {
-                    do {
-                        let model = try JSONDecoder().decode(T.self, from: data)
-                        observer.onNext(model)
-                    } catch let error {
-                        observer.onError(error)
-                    }
-                }
-                observer.onCompleted()
-                return Disposables.create()
-            } else {
+            guard self != nil else { return Disposables.create() }
                 guard let request = URL(string: url) else {
                     return Disposables.create()
                 }
@@ -49,20 +36,7 @@ class APIClient: Networking {
                 return Disposables.create {
                     task.cancel()
                 }
-            }
         }
-    }
-
-    func getmMockData(name: String) -> Data? {
-        if let path = Bundle.main.path(forResource: name, ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                return data
-            } catch {
-                print("Request failed with error: \(error)")
-            }
-        }
-        return nil
     }
 }
 
