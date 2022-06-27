@@ -12,7 +12,7 @@ import RxSwift
 class APIClientTest: XCTestCase {
     func testResultsApi() {
         let sut = APIClient()
-        let listMovies: Observable<PopularMovies>? = sut.getData(url: APIRoute.getListMovies.urlString, isMock: false)
+        let listMovies: Observable<PopularMovies>? = sut.getData(url: APIRoute.getListMovies.urlString)
         let disposeBag = DisposeBag()
         listMovies?
             .debug("mainListMovies received event")
@@ -22,8 +22,8 @@ class APIClientTest: XCTestCase {
     }
     
     func testResultsMock() {
-        let sut = APIClient()
-        let listMovies: Observable<PopularMovies>? = sut.getData(url: APIRoute.getListMoviesMock.urlString, isMock: true)
+        let sut = APIClientMock()
+        let listMovies: Observable<PopularMovies>? = sut.getData(url: APIRoute.getListMoviesMock.urlString)
         let disposeBag = DisposeBag()
         listMovies?
             .debug("mainListMovies received event")
@@ -38,7 +38,7 @@ class APIClientTest: XCTestCase {
     }
     
     func testResultsPath() {
-        let sut = APIClient()
+        let sut = APIClientMock()
         let listMovies = sut.getmMockData(name: APIRoute.getListMoviesMock.urlString)
         XCTAssertNotNil(listMovies)
     }

@@ -8,6 +8,7 @@
 import XCTest
 @testable import BnpMock
 import RxSwift
+import Swinject
 
 class ListMoviesTest: XCTestCase {
     private var sut: ListMoviesViewController!
@@ -20,10 +21,15 @@ class ListMoviesTest: XCTestCase {
     override func setUp()
     {
       super.setUp()
-        let container = SwinjectContainer.shared.container
-        let sb = SwinjectStoryboard.create(
-            name: "ListMovies", bundle: nil, container: container)
-        sut = sb.instantiateViewController(withIdentifier: "ListMoviesViewController") as? ListMoviesViewController
+        let swinjectContainer = SwinjectContainer()
+        swinjectContainer.register()
+        let coordinator = Coordinator(windowScene: nil, swinjectContainer: swinjectContainer, window: nil)
+        let container = coordinator.container
+        
+        guard let listMoviesViewController = container.resolve(ListMoviesViewController.self, arguments: coordinator, "apiUrl") else {
+            return
+        }
+        sut = listMoviesViewController
         sut.loadViewIfNeeded()
         sut.tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier.movieCell)
         dataSource = TableViewDataSource()
